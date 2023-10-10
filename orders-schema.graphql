@@ -1,5 +1,5 @@
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.5", import: ["@key"])
+  @link(url: "https://specs.apollo.dev/federation/v2.5", import: ["@key", "@authenticated"])
 
 type Query {
   """
@@ -15,7 +15,7 @@ type Order @key(fields: "id") {
   """
   Each order has a unique id which is separate from the user or items they bought
   """
-  id: ID!
+  id: ID! @authenticated
 
   """
   The user who made the purchase
